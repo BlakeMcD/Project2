@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Ten Photo Searcher</title>
+</head>
+<body>
+    <div class="hero">
+        <div class="heroText">
+            <h1>Find Five</h1>
+
+            <input type="text" id="search" placeholder="type search here...">
+            <button onclick="searchPhotos()" id = "searchButton">Search</button>
+            <p id="heroParagraph">Search our photo database and view the top five picks</p>
+        </div>
+    </div>
+
+    <div class="images">
+        <h2>Your Selection</h2>
+        <div id="results"></div>
+    </div>
+
+    <!--Image Gallery-->
+    <div class="imageSection">
+        <div class="imageGallery"></div>
+        <!-- <ion-icon name="chevron-back-circle-outline" id="prevBtn"></ion-icon>
+        <ion-icon name="chevron-forward-circle-outline" id="nextBtn"></ion-icon> -->
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
