@@ -1,0 +1,95 @@
+
+
+/* .photos{
+    display: grid;
+    grid-template-columns: 30% 40%;
+    grid-auto-rows:100px 300px;
+    grid-gap: 10px;
+    border: 10px solid black;
+} */
+
+.imageGallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 200px 300px;
+    /* grid-auto-rows:auto auto; */
+    grid-gap: 10px;
+    border: 10px solid black;
+    grid-auto-flow: dense;
+ 
+}
+
+/* .imageGallery {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 10px solid red;
+} */
+
+.image {
+    width: 100%;
+    height: 100%; 
+    /* Is position relative only to do with labels? */
+    position: relative;
+    /* overflow: hidden; */
+
+
+}
+
+.photos .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.photos .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border: 10px solid yellow; */
+    object-position: 50% 50%;
+    cursor:pointer;
+}
+
+
+.rowSpan1 {
+    grid-column: span 1;
+}
+.rowSpan2 {
+    grid-column: span 2;
+}
+.rowSpan3 {
+    grid-column: span 3;
+}
+.rowSpan4 {
+    grid-column: span 4;
+}
+
+.columnSpan1 {
+    grid-row: span 1;
+}
+.columnSpan2 {
+    grid-row: span 2;
+}
+.columnSpan3 {
+    grid-row: span 3;
+}
+.columnSpan4 {
+    grid-row: span 4;
+}
+
+@media screen and (max-width: 1000px){
+    .imageGallery{
+        grid-template-columns: repeat(1,1fr)
+    }
+    .rowSpan1 {
+        grid-column: span 1;
+    }
+    .rowSpan2 {
+        grid-column: span 1;
+    }
+    .rowSpan3 {
+        grid-column: span 1;
+    }
+}
