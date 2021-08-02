@@ -15,32 +15,27 @@ function searchPhotos() {
          for (const photo of data.results.slice(0,15)) {
 
             const div = document.createElement('div');
+            const button = document.createElement('button')
 
-            // const results = `
-            // <img src="${photo.urls.regular}" class="galleryImage">
-            // <ion-icon name="heart-outline" class="likeBtn"></ion-icon>
-            // `;
 
             function getRandomInt(max) {
                 return Math.ceil(Math.random() * max);
-              }
+            }
             
-
-
             const results = `
             <img src="${photo.urls.regular}" class="image">
+            <button class="likeButton2">TEST2</button>
             `;
 
 
-            // const results = `
-            // <img src="${photo.urls.regular}" class="image rowSpan${rValue} columnSpan${cValue}">
-            // `;
-
             div.innerHTML = results;
             div.className = "photos";
+            button.innerText = "test"
+            button.className = "likeButton"
 
 
            document.querySelector('.imageGallery').append(div);
+           document.querySelector('.imageGallery').append(button);
 
            let rValue = getRandomInt(3);
            let cValue = getRandomInt(3);
