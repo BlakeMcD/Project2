@@ -15,7 +15,6 @@ function searchPhotos() {
          for (const photo of data.results.slice(0,15)) {
 
             const div = document.createElement('div');
-            const button2 = document.createElement('button')
 
 
             function getRandomInt(max) {
@@ -24,7 +23,7 @@ function searchPhotos() {
             
             const results = `
             <img src="${photo.urls.regular}" class="image">
-            <button class="likeButton">TEST</button>
+            <icon class="likeButton"><i class="fas fa-heart"></i></icon>
             `;
 
 
@@ -33,14 +32,12 @@ function searchPhotos() {
 
 
            document.querySelector('.imageGallery').append(div);
-           document.querySelector('.imageGallery').append(button2);
 
            let rValue = getRandomInt(3);
            let cValue = getRandomInt(3);
 
            div.classList.add(`rowSpan${rValue}`);
            div.classList.add(`columnSpan${cValue}`);
-           button2.classList.add(`button2`);
         }
         // //make previous and next buttons clickable
         // buttonsWork = true;

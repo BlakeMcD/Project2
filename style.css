@@ -21,6 +21,10 @@
         position: relative;
     }
 
+    .photos {
+        position: relative;
+    }
+
     .photos .image {
         width: 100%;
         height: 100%;
@@ -36,24 +40,24 @@
     }
 
     .rowSpan1 {
-        grid-column: span 1;
+        grid-column: span 2;
     }
     .rowSpan2 {
         grid-column: span 2;
     }
     .rowSpan3 {
-        grid-column: span 3;
+        grid-column: span 2;
     }
 
 
     .columnSpan1 {
-        grid-row: span 1;
-    }
-    .columnSpan2 {
         grid-row: span 2;
     }
-    .columnSpan3 {
+    .columnSpan2 {
         grid-row: span 3;
+    }
+    .columnSpan3 {
+        grid-row: span 4;
     }
 
         /* Albert, I love this feature! Cool thing I found to help with small screen compatibility :) */
@@ -75,7 +79,16 @@
 /* LIKE button */
     .likeButton {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 10px;
+        left: 10px;
         z-index: 10;
+        /* transform:translate(-50%,-50%); */
+        color: red;
+        scale: 200%;
+        /* this transform code is awesome - makes it perfectly center by offsetting */
     }
+
+    .likeIcon {
+    }
+
+
