@@ -4,7 +4,18 @@ let imagesHeaderExists = false;
 const imageGallery = document.querySelector('.imageGallery');
 const image = document.querySelector('.image');
 const container = document.getElementById("container");
+const slideShow = document.querySelector('slideShow');
 // container.style.padding = 0;
+
+//Slideshow
+// let slideshowCounter = 0;
+// let slideshowImages = [];
+// let slidshowCreated = false;
+
+// if (Array.isArray(emptyArray) && emptyArray.length)
+// {
+//     slideshowCreate = true;
+// }
 
 
 
@@ -81,45 +92,46 @@ function searchPhotos() {
 // const likeButton = document.getElementByClass('.likeIcon');
 
     imageGallery.addEventListener('click',(event) => {
-        console.log(event.target.classList)
+        // console.log(event.target.classList)
         // console.log(event.target.class);
         if (event.target.classList.contains("fa-heart")) {
-            if (event.target.classList.contains("far")) {
+            if (event.target.classList.contains("far")) { //clicks on like button
                 event.target.classList.replace("far", "fas");
+                //what is everything that it has to do? 
+                //create the Favourites Section
+                //prepare the slideshow
+                //push the pic into the slideshow
+                const photo = event.target.parentNode.parentNode.querySelector('img');
+                console.log(photo); //test
+
+                let photoClone = photo.cloneNode(true);
+                // photoClone.classList.remove("image")
+                // photoClone.classList.add(`favouritePhoto <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" >`)
+                photoClone.classList.add("favouritePhoto")
+                document.querySelector('#slideShow').append(photoClone); 
+
+
+            //     const results = `
+            // <img src="${photo.urls.regular}" class="image">
+            // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
+            // `;
+
+
+            // div.innerHTML = results;
+            // div.className = "photos";
+
             } else {
-                event.target.classList.replace("fas", "far");
+                event.target.classList.replace("fas", "far");  //dislikes the image
             }
         } 
     })
 
-// //Add Event listeners for like button
-// imageGallery.addEventListener('click',(event) => {
-//     console.log(event.target)
-//     // if (event.target.name === "heartOutline" || event.target.name === "fas fa-heart") {
-//         if (event.target.name === "heartOutline") {
-//         console.log("TRUE")
-//         if (buttonsWork === true) {
-//             if (event.target.name == "heartOutline") {
-//                 // event.target.name = "fas fa-heart" //change icon
-    
-    
-//                 //add photos to favourites section 
-//                 const photo = event.target.parentNode.querySelector('img');
-//                 console.log(photo); //test
-    
-//                 let photoClone = photo.cloneNode(true);
-//                 // photoClone.classList.remove("carouselImage")
-//                 photoClone.classList.add("favouritePhoto")
-//                 document.querySelector('.favourites').append(photoClone); 
-    
-    
-//             }
-//             else {
-//                 event.target.name= "heartOutline"
-//             }
-//         }
-//     }
-//     else {
-//         console.log("False")
-//     }
-// })
+//DELETE PHOTO
+slideShow.addEventListener('click',(event) => {
+    console.log(event)
+    if (event.target.className == "favouritePhoto") {
+        console.log('YES')
+    } else {
+        console.log('NO')
+    }
+});

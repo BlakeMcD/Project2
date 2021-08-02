@@ -189,3 +189,18 @@ body {
     }
 
 
+/* FAVOURITES section */
+#favouritesDiv {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.favouritePhoto {
+    width: 360px;
+    height: 288px;
+    object-fit: cover; 
+    display: inline;
+    padding: 10px;
+    text-align: center;
+}
+
