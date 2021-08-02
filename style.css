@@ -130,8 +130,7 @@ body {
     }
     /* zoom or scale feature */
     .photos img.image:hover{
-        /* transform:scale(1.02); */
-        width: 150%;
+        transform:scale(1.02);
     }
 
     .rowSpan1 {
@@ -180,7 +179,6 @@ body {
         /* transform:translate(-50%,-50%); */
         color: #664684;
         scale: 500%;
-        border: 5px solid black;
         cursor: pointer;
         /* this transform code is awesome - makes it perfectly center by offsetting */
     }
