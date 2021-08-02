@@ -1,8 +1,21 @@
+//let and const
+let buttonsWork = false;
+let imagesHeaderExists = false;
+const imageGallery = document.querySelector('.imageGallery');
+const image = document.querySelector('.image');
+const container = document.getElementById("container");
+// container.style.padding = 0;
+
+
+
 //Search Photos Function 
 function searchPhotos() {
     let clientId = "llmyDAM46Iyjezu-cd3FCEOJJepSNekA7Tg1STQTwKY";
     let query = document.getElementById("search").value;
     let url = "https://api.unsplash.com/search/photos?client_id="+clientId+"&query="+query;
+
+    //remove previous search results (if they exists)
+    imageGallery.innerHTML = "";
 
     //make API request
     fetch(url)
@@ -23,7 +36,7 @@ function searchPhotos() {
             
             const results = `
             <img src="${photo.urls.regular}" class="image">
-            <icon class="likeButton"><i class="fas fa-heart"></i></icon>
+            <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
             `;
 
 
@@ -38,11 +51,75 @@ function searchPhotos() {
 
            div.classList.add(`rowSpan${rValue}`);
            div.classList.add(`columnSpan${cValue}`);
+
         }
-        // //make previous and next buttons clickable
-        // buttonsWork = true;
+
+        //make like buttons clickable
+        buttonsWork = true;
+
+
         
         // //reset counter to 1
         // //counter = 1;
+
+        //Set Opacity of Images to 1
+        const imagesHeader = document.getElementById("imagesHeader");
+        imagesHeader.style.opacity = 1;
+        //padding of images
+
+        // container.style.border = "1%";
+        container.classList.remove("hidden");
+        
+
     }) 
 }
+
+
+
+
+// const likeIcon = document.querySelector('.far');
+// const likeButton = document.getElementByClass('.likeIcon');
+
+    imageGallery.addEventListener('click',(event) => {
+        console.log(event.target.classList)
+        // console.log(event.target.class);
+        if (event.target.classList.contains("fa-heart")) {
+            if (event.target.classList.contains("far")) {
+                event.target.classList.replace("far", "fas");
+            } else {
+                event.target.classList.replace("fas", "far");
+            }
+        } 
+    })
+
+// //Add Event listeners for like button
+// imageGallery.addEventListener('click',(event) => {
+//     console.log(event.target)
+//     // if (event.target.name === "heartOutline" || event.target.name === "fas fa-heart") {
+//         if (event.target.name === "heartOutline") {
+//         console.log("TRUE")
+//         if (buttonsWork === true) {
+//             if (event.target.name == "heartOutline") {
+//                 // event.target.name = "fas fa-heart" //change icon
+    
+    
+//                 //add photos to favourites section 
+//                 const photo = event.target.parentNode.querySelector('img');
+//                 console.log(photo); //test
+    
+//                 let photoClone = photo.cloneNode(true);
+//                 // photoClone.classList.remove("carouselImage")
+//                 photoClone.classList.add("favouritePhoto")
+//                 document.querySelector('.favourites').append(photoClone); 
+    
+    
+//             }
+//             else {
+//                 event.target.name= "heartOutline"
+//             }
+//         }
+//     }
+//     else {
+//         console.log("False")
+//     }
+// })

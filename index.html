@@ -5,34 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" media="all">
-    <title>Top Ten Photo Searcher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://use.fontawesome.com/fcc453c4b8.js" defer></script>
+    <script src="script.js" defer></script>
+    <!-- Import Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+    </style>
+    <title>Search through Snapshots</title>
 </head>
 <body>
     <div class="hero">
         <div class="heroText">
-            <h1>Find Five</h1>
+            <h1>Need a Snapshot?</h1>
 
             <input type="text" id="search" placeholder="type search here...">
             <button onclick="searchPhotos()" id = "searchButton">Search</button>
-            <p id="heroParagraph">Search our photo database and view the top five picks</p>
+            <p id="heroParagraph">Search for royalty-free photos using Unsplash's API</p>
         </div>
     </div>
 
-    <!-- <div class="imagesContainer">
-        <h2>Your Selection</h2>
-        <div class="results"></div>
-    </div> -->
+    <div id="favourites">
+    <h2>Favourites</h2>
+    </div> 
 
     <!--Image Gallery-->
-    <div class = "container">
-        <div class="imagesContainer">
-            <div class="imageGallery"></div>
+    <div id="images">
+        <h2 id="imagesHeader">Images</h2>
+        <div class = "container hidden" id="container">
+            <div class="imagesContainer">
+                <div class="imageGallery"></div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+
 
 </body>
 </html>

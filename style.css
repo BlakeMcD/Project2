@@ -1,15 +1,104 @@
+/* FONT FAMILY AND FONT WEIGHT */
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 600%;
+    color:#FFDF65;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 400%;
+    color:#664684;
+    margin-left: 10%;
+}
+
+#heroParagraph {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 200%;
+    /* color: #E8E8DB; */
+    color: #fff9e0;
+}
+
+#search {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 250%;
+    /* color: #494846; */
+    color: #664684;
+}
+
+#searchButton {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 250%;
+    /* color: #494846; */
+    color: #664684;
+}
+
+/* THE HERO IMAGE */
+body {
+    margin: 0;  /*corrects the width of the hero image*/
+}
+
+.hero {
+    /*set background image */
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+
+    /*set height*/
+    height: 600px;
+
+    /*set position and scale */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroText {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* THE IMAGES SECTION */
+#favourites {
+    margin: 0;
+    padding: 10px; 
+    background-color: #fff9e0;
+}
+
+#images {
+    margin: 0;
+    padding-top: 10px;
+    background-color: #fff9e0;
+}
+
+.container {
+    margin: 0 10% 0 10%;
+    padding: 1%; 
+    /* border: 10px solid purple; */
+    background-color: #d4cadf;
+}
+
+.hidden {
+    display:none;
+}
+
 /* CSS GRID STUFF*/
 
-    .imageContainer {
-        
-    }
+
     .imageGallery {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-auto-rows: 200px 300px;
         /* grid-auto-rows:auto auto; */
-        grid-gap: 10px;
-        border: 10px solid black;
+        grid-gap: 20px;
         grid-auto-flow: dense;
         position: relative;
 
@@ -32,11 +121,17 @@
         object-fit: cover;
     }
 
-    .photos .image img{
+    .photos img.image{
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: 50% 50%;
+        transition:.25s ease-in-out;
+    }
+    /* zoom or scale feature */
+    .photos img.image:hover{
+        /* transform:scale(1.02); */
+        width: 150%;
     }
 
     .rowSpan1 {
@@ -77,18 +172,22 @@
     }
 
 /* LIKE button */
-    .likeButton {
+    .likeIcon {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 30px;
+        left: 40px;
         z-index: 10;
         /* transform:translate(-50%,-50%); */
-        color: red;
-        scale: 200%;
+        color: #664684;
+        scale: 500%;
+        border: 5px solid black;
+        cursor: pointer;
         /* this transform code is awesome - makes it perfectly center by offsetting */
     }
 
-    .likeIcon {
+/* HEADER AND BOUNDARY OPACITY */
+    #imagesHeader{
+        opacity: 0;
     }
 
 
