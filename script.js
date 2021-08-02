@@ -4,8 +4,8 @@ let imagesHeaderExists = false;
 const imageGallery = document.querySelector('.imageGallery');
 const image = document.querySelector('.image');
 const container = document.getElementById("container");
-const slideShow = document.querySelector('slideShow');
 // container.style.padding = 0;
+let favouriteClicked = false;
 
 //Slideshow
 // let slideshowCounter = 0;
@@ -110,6 +110,8 @@ function searchPhotos() {
                 photoClone.classList.add("favouritePhoto")
                 document.querySelector('#slideShow').append(photoClone); 
 
+                favouriteClicked = true;
+
 
             //     const results = `
             // <img src="${photo.urls.regular}" class="image">
@@ -126,12 +128,26 @@ function searchPhotos() {
         } 
     })
 
-//DELETE PHOTO
-slideShow.addEventListener('click',(event) => {
-    console.log(event)
-    if (event.target.className == "favouritePhoto") {
-        console.log('YES')
-    } else {
-        console.log('NO')
-    }
-});
+
+//SLIDESHOW
+
+const slideShow = document.querySelector('#slideShow')
+const showShowImages = document.querySelectorAll('#slideShow img')
+
+//buttons
+const prevBtn = document.querySelector('#prevBtn');
+const nextBtn = document.querySelector('#nextBtn');
+
+let counter = 1;
+const size = 24;
+
+slideShow.style.transform = 'translateX(' + (-size) +'px)'
+
+    nextBtn.addEventListener('click',()=>{
+        slideShow.style.transition = "transform 0.4s ease-in-out"
+        counter++;
+        console.log(counter)
+        slideShow.style.transform = 'translateX(' + (-size) +'px)'
+    })
+
+

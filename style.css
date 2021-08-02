@@ -199,8 +199,12 @@ body {
     width: 360px;
     height: 288px;
     object-fit: cover; 
-    display: inline;
+    /* display: inline; */
     padding: 10px;
     text-align: center;
 }
 
+#slideShow {
+    display:flex;
+    /* overflow:hidden; */
+}
