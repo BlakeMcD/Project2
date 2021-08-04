@@ -1,153 +1,169 @@
-//let and const
-let buttonsWork = false;
-let imagesHeaderExists = false;
-const imageGallery = document.querySelector('.imageGallery');
-const image = document.querySelector('.image');
-const container = document.getElementById("container");
-// container.style.padding = 0;
-let favouriteClicked = false;
+//  document.addEventListener('DOMContentLoaded', function(){
+        //let and const
+    let buttonsWork = false;
+    let imagesHeaderExists = false;
+    const imageGallery = document.querySelector('.imageGallery');
+    const image = document.querySelector('.image');
+    const container = document.getElementById("container");
+    // container.style.padding = 0;
+    let favouriteClicked = false;
+    translate = 0;
+    scrollAmount = 360;
 
-//Slideshow
-// let slideshowCounter = 0;
-// let slideshowImages = [];
-// let slidshowCreated = false;
+    //Slideshow
+    // let slideshowCounter = 0;
+    // let slideshowImages = [];
+    // let slidshowCreated = false;
 
-// if (Array.isArray(emptyArray) && emptyArray.length)
-// {
-//     slideshowCreate = true;
-// }
-
-
-
-//Search Photos Function 
-function searchPhotos() {
-    let clientId = "llmyDAM46Iyjezu-cd3FCEOJJepSNekA7Tg1STQTwKY";
-    let query = document.getElementById("search").value;
-    let url = "https://api.unsplash.com/search/photos?client_id="+clientId+"&query="+query;
-
-    //remove previous search results (if they exists)
-    imageGallery.innerHTML = "";
-
-    //make API request
-    fetch(url)
-    .then(function(data) {
-        return data.json();
-    })
-    .then(function(data) {
-        console.log(data);
-
-         for (const photo of data.results.slice(0,15)) {
-
-            const div = document.createElement('div');
+    // if (Array.isArray(emptyArray) && emptyArray.length)
+    // {
+    //     slideshowCreate = true;
+    // }
 
 
-            function getRandomInt(max) {
-                return Math.ceil(Math.random() * max);
+
+    //Search Photos Function 
+    function searchPhotos() {
+        let clientId = "llmyDAM46Iyjezu-cd3FCEOJJepSNekA7Tg1STQTwKY";
+        let query = document.getElementById("search").value;
+        let url = "https://api.unsplash.com/search/photos?client_id="+clientId+"&query="+query;
+
+        //remove previous search results (if they exists)
+        imageGallery.innerHTML = "";
+
+        //make API request
+        fetch(url)
+        .then(function(data) {
+            return data.json();
+        })
+        .then(function(data) {
+            console.log(data);
+
+            for (const photo of data.results.slice(0,30)) {
+
+                const div = document.createElement('div');
+
+
+                function getRandomInt(max) {
+                    return Math.ceil(Math.random() * max);
+                }
+                
+                const results = `
+                <img src="${photo.urls.regular}" class="image">
+                <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
+                `;
+
+
+                div.innerHTML = results;
+                div.className = "photos";
+
+
+            document.querySelector('.imageGallery').append(div);
+
+            let rValue = getRandomInt(3);
+            let cValue = getRandomInt(3);
+
+            div.classList.add(`rowSpan${rValue}`);
+            div.classList.add(`columnSpan${cValue}`);
+
             }
+
+            //make like buttons clickable
+            buttonsWork = true;
+
+
             
-            const results = `
-            <img src="${photo.urls.regular}" class="image">
-            <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
-            `;
+            // //reset counter to 1
+            // //counter = 1;
 
+            //Set Opacity of Images to 1
+            const imagesHeader = document.getElementById("imagesHeader");
+            imagesHeader.style.opacity = 1;
+            //padding of images
 
-            div.innerHTML = results;
-            div.className = "photos";
+            // container.style.border = "1%";
+            container.classList.remove("hidden");
+            
 
-
-           document.querySelector('.imageGallery').append(div);
-
-           let rValue = getRandomInt(3);
-           let cValue = getRandomInt(3);
-
-           div.classList.add(`rowSpan${rValue}`);
-           div.classList.add(`columnSpan${cValue}`);
-
-        }
-
-        //make like buttons clickable
-        buttonsWork = true;
-
-
-        
-        // //reset counter to 1
-        // //counter = 1;
-
-        //Set Opacity of Images to 1
-        const imagesHeader = document.getElementById("imagesHeader");
-        imagesHeader.style.opacity = 1;
-        //padding of images
-
-        // container.style.border = "1%";
-        container.classList.remove("hidden");
-        
-
-    }) 
-}
+        }) 
+    }
 
 
 
 
-// const likeIcon = document.querySelector('.far');
-// const likeButton = document.getElementByClass('.likeIcon');
+    // const likeIcon = document.querySelector('.far');
+    // const likeButton = document.getElementByClass('.likeIcon');
 
-    imageGallery.addEventListener('click',(event) => {
-        // console.log(event.target.classList)
-        // console.log(event.target.class);
-        if (event.target.classList.contains("fa-heart")) {
-            if (event.target.classList.contains("far")) { //clicks on like button
-                event.target.classList.replace("far", "fas");
-                //what is everything that it has to do? 
-                //create the Favourites Section
-                //prepare the slideshow
-                //push the pic into the slideshow
-                const photo = event.target.parentNode.parentNode.querySelector('img');
-                console.log(photo); //test
+        imageGallery.addEventListener('click',(event) => {
+            // console.log(event.target.classList)
+            // console.log(event.target.class);
+            if (event.target.classList.contains("fa-heart")) {
+                if (event.target.classList.contains("far")) { //clicks on like button
+                    event.target.classList.replace("far", "fas");
+                    //what is everything that it has to do? 
+                    //create the Favourites Section
+                    //prepare the slideshow
+                    //push the pic into the slideshow
+                    const photo = event.target.parentNode.parentNode.querySelector('img');
+                    console.log(photo); //test
 
-                let photoClone = photo.cloneNode(true);
-                // photoClone.classList.remove("image")
-                // photoClone.classList.add(`favouritePhoto <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" >`)
-                photoClone.classList.add("favouritePhoto")
-                document.querySelector('#slideShow').append(photoClone); 
+                    let photoClone = photo.cloneNode(true);
+                    // photoClone.classList.remove("image")
+                    // photoClone.classList.add(`favouritePhoto <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" >`)
+                    photoClone.classList.add("favouritePhoto")
+                    document.querySelector('#slideShow').append(photoClone); 
 
-                favouriteClicked = true;
-
-
-            //     const results = `
-            // <img src="${photo.urls.regular}" class="image">
-            // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
-            // `;
+                    favouriteClicked = true;
 
 
-            // div.innerHTML = results;
-            // div.className = "photos";
-
-            } else {
-                event.target.classList.replace("fas", "far");  //dislikes the image
-            }
-        } 
-    })
+                //     const results = `
+                // <img src="${photo.urls.regular}" class="image">
+                // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
+                // `;
 
 
-//SLIDESHOW
+                // div.innerHTML = results;
+                // div.className = "photos";
 
-const slideShow = document.querySelector('#slideShow')
-const showShowImages = document.querySelectorAll('#slideShow img')
+                } else {
+                    event.target.classList.replace("fas", "far");  //dislikes the image
+                }
+            } 
+        })
 
-//buttons
-const prevBtn = document.querySelector('#prevBtn');
-const nextBtn = document.querySelector('#nextBtn');
 
-let counter = 1;
-const size = 24;
+    //SLIDESHOW
 
-slideShow.style.transform = 'translateX(' + (-size) +'px)'
+    const slideShow = document.querySelector('#slideShow')
+    const showShowImages = document.querySelectorAll('#slideShow img')
+
+    //buttons
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
+
+    let counter = 1;
+    const size = 280;
+
+    // slideShow.style.transform = 'translateX(' + (-size) +'px)'
 
     nextBtn.addEventListener('click',()=>{
-        slideShow.style.transition = "transform 0.4s ease-in-out"
+        // slideShow.style.transition = "transform 0.4s ease-in-out"
         counter++;
         console.log(counter)
-        slideShow.style.transform = 'translateX(' + (-size) +'px)'
+        translate -= scrollAmount;
+        slideShow.style.transform = 'translateX(' + (translate) +'px)'
+        console.log(slideShow.style.transform)
+    })
+
+    prevBtn.addEventListener('click',()=>{
+        // slideShow.style.transition = "transform 0.4s ease-in-out"
+        counter--;
+        console.log(counter)
+        translate += scrollAmount;
+        slideShow.style.transform = 'translateX(' + (translate) +'px)'
+        console.log(slideShow.style.transform)
     })
 
 
+
+// })

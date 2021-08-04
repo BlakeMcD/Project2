@@ -14,6 +14,11 @@ Heart by il Capitano from the Noun Project
   Outline  <i class="far fa-heart"></i> 
   Filled  <i class="fas fa-heart"></i> 
 
+  Chevron Left: <i class="fas fa-chevron-left"></i>
+  Chevron Left: <i class="fas fa-chevron-right"></i>
+
+  <i class="fas fa-minus-circle"></i>
+
   YELLLOW #FFDF65
   MID GREY #858377
 DARKER GREY #636057
