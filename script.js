@@ -7,8 +7,10 @@
     const container = document.getElementById("container");
     // container.style.padding = 0;
     let favouriteClicked = false;
-    translate = 0;
-    scrollAmount = 360;
+    let translate = 0;
+    let scrollAmount = 240;
+
+
 
     //Slideshow
     // let slideshowCounter = 0;
@@ -146,14 +148,25 @@
 
     // slideShow.style.transform = 'translateX(' + (-size) +'px)'
 
+    // nextBtn.addEventListener('click',()=>{
+    //     // slideShow.style.transition = "transform 0.4s ease-in-out"
+    //     counter++;
+    //     console.log(counter)
+    //     translate -= scrollAmount;
+    //     slideShow.style.transform = 'translateX(' + (translate) +'px)'
+    //     console.log(slideShow.style.transform)
+    // })
+
+    
     nextBtn.addEventListener('click',()=>{
         // slideShow.style.transition = "transform 0.4s ease-in-out"
         counter++;
         console.log(counter)
         translate -= scrollAmount;
         slideShow.style.transform = 'translateX(' + (translate) +'px)'
-        console.log(slideShow.style.transform)
+        console.log(slideShow.style.transform);
     })
+
 
     prevBtn.addEventListener('click',()=>{
         // slideShow.style.transition = "transform 0.4s ease-in-out"

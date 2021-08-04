@@ -193,6 +193,7 @@ body {
 #favouritesDiv {
     margin-left: 10%;
     margin-right: 10%;
+    position: relative;
 }
 
 .favouritePhoto {
@@ -206,5 +207,37 @@ body {
 
 #slideShow {
     display:flex;
+    height: 308px;
     /* overflow:hidden; */
+}
+
+#prevBtn {
+    position: absolute;
+    top: 50%;
+    transform:translate(-50%,-50%);
+    z-index: 10px;
+    font-size: 100px;
+    color: #664684;
+    cursor: pointer;
+    /* grid-area: prev; */
+    align-self: center;
+    left: 0;
+    background-color:transparent;
+    border: 0;
+
+}
+
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    transform:translate(-50%,-50%);
+    z-index: 10px;
+    font-size: 100px;
+    color: #664684;
+    cursor: pointer;
+    /* grid-area: next; */
+    align-self: center;
+    right: 0;
+    background-color:transparent;
+    border: 0;
 }
