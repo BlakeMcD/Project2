@@ -8,6 +8,7 @@
     let favouriteClicked = false;
     let translate = 0;
     let scrollAmount = 10;
+    let imgID = 0;
 
 
     //Search Photos Function 
@@ -38,7 +39,7 @@
                 
                 const results = `
                 <img src="${photo.urls.regular}" class="image">
-                <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
+                <icon class="likeIcon"><i class="far fa-heart"></i></icon>
                 `;
 
 
@@ -73,18 +74,53 @@
     }
 
 
+        //CLICK ON HEART
         imageGallery.addEventListener('click',(event) => {
-            // console.log(event.target.classList)
-            // console.log(event.target.class);
             if (event.target.classList.contains("fa-heart")) {
                 if (event.target.classList.contains("far")) { //clicks on like button
                     event.target.classList.replace("far", "fas");
                     const photo = event.target.parentNode.parentNode.querySelector('img');
                     console.log(photo); //test
 
+                    //TEST SECTION - maybe if I try creating an element, appending it to slideshow, and then adding the photoclone to that? 
+                    // const div = document.createElement('div');
+                    // div.classList.add(`favImage${imgID}`)
+                    
+                    // document.querySelector('#slideShow').append(div); 
+
+                    //TEST SECTION ENDS
+
+                    //ORIGINAL CODE
                     let photoClone = photo.cloneNode(true);
                     photoClone.classList.add("favouritePhoto")
                     document.querySelector('#slideShow').append(photoClone); 
+
+                    //REVISED CODE
+                    // let photoClone = photo.cloneNode(true);
+                    // photoClone.classList.add("favouritePhoto")
+                    // setTimeout(function(){return document.querySelector(`favImage${imgID}`).append(photoClone)},1000)
+
+                    // imgID += 1;
+
+
+
+                    // photoClone.parentElement.innerHTML = `<icon class="likeIcon"><i class="fas fa-minus-circle"></i></icon>`
+
+                    // ATTEMPT ADD LIKE BUTTONS TO FAVOURITE IMAGES
+
+                    // REFERENCE CODE
+
+                    // const results = `
+                    // <img src="${photo.urls.regular}" class="image">
+                    // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
+                    // `;
+    
+    
+                    // div.innerHTML = results;
+                    // div.className = "photos";
+    
+    
+                    // document.querySelector('.imageGallery').append(div);
 
                     favouriteClicked = true;
 
