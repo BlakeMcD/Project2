@@ -5,23 +5,9 @@
     const imageGallery = document.querySelector('.imageGallery');
     const image = document.querySelector('.image');
     const container = document.getElementById("container");
-    // container.style.padding = 0;
     let favouriteClicked = false;
     let translate = 0;
-    let scrollAmount = 240;
-
-
-
-    //Slideshow
-    // let slideshowCounter = 0;
-    // let slideshowImages = [];
-    // let slidshowCreated = false;
-
-    // if (Array.isArray(emptyArray) && emptyArray.length)
-    // {
-    //     slideshowCreate = true;
-    // }
-
+    let scrollAmount = 10;
 
 
     //Search Photos Function 
@@ -74,10 +60,6 @@
             buttonsWork = true;
 
 
-            
-            // //reset counter to 1
-            // //counter = 1;
-
             //Set Opacity of Images to 1
             const imagesHeader = document.getElementById("imagesHeader");
             imagesHeader.style.opacity = 1;
@@ -91,41 +73,20 @@
     }
 
 
-
-
-    // const likeIcon = document.querySelector('.far');
-    // const likeButton = document.getElementByClass('.likeIcon');
-
         imageGallery.addEventListener('click',(event) => {
             // console.log(event.target.classList)
             // console.log(event.target.class);
             if (event.target.classList.contains("fa-heart")) {
                 if (event.target.classList.contains("far")) { //clicks on like button
                     event.target.classList.replace("far", "fas");
-                    //what is everything that it has to do? 
-                    //create the Favourites Section
-                    //prepare the slideshow
-                    //push the pic into the slideshow
                     const photo = event.target.parentNode.parentNode.querySelector('img');
                     console.log(photo); //test
 
                     let photoClone = photo.cloneNode(true);
-                    // photoClone.classList.remove("image")
-                    // photoClone.classList.add(`favouritePhoto <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" >`)
                     photoClone.classList.add("favouritePhoto")
                     document.querySelector('#slideShow').append(photoClone); 
 
                     favouriteClicked = true;
-
-
-                //     const results = `
-                // <img src="${photo.urls.regular}" class="image">
-                // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
-                // `;
-
-
-                // div.innerHTML = results;
-                // div.className = "photos";
 
                 } else {
                     event.target.classList.replace("fas", "far");  //dislikes the image
@@ -144,39 +105,50 @@
     const nextBtn = document.querySelector('#nextBtn');
 
     let counter = 1;
-    const size = 280;
+    const size = 20;
 
-    // slideShow.style.transform = 'translateX(' + (-size) +'px)'
+    let holdInterval;
 
-    // nextBtn.addEventListener('click',()=>{
-    //     // slideShow.style.transition = "transform 0.4s ease-in-out"
-    //     counter++;
-    //     console.log(counter)
-    //     translate -= scrollAmount;
-    //     slideShow.style.transform = 'translateX(' + (translate) +'px)'
-    //     console.log(slideShow.style.transform)
-    // })
-
+    //HOLD DOWN NEXT BUTTON
+    const mouseHoldDownRight = function() {
+        holdInterval = setInterval(() => {
+            counter++;
+            console.log(counter)
+            translate -= scrollAmount;
+            slideShow.style.transform = 'translateX(' + (translate) +'px)'
+            console.log(slideShow.style.transform);
     
-    nextBtn.addEventListener('click',()=>{
-        // slideShow.style.transition = "transform 0.4s ease-in-out"
-        counter++;
-        console.log(counter)
-        translate -= scrollAmount;
-        slideShow.style.transform = 'translateX(' + (translate) +'px)'
-        console.log(slideShow.style.transform);
+        }, 15)
+    }
+    
+    nextBtn.addEventListener('mousedown',()=>{
+        mouseHoldDownRight();
+    })
+
+    nextBtn.addEventListener('mouseup',()=>{
+        clearInterval(holdInterval)
+    })
+
+    //HOLD DOWN PREV BUTTON
+    const mouseHoldDownLeft = function() {
+        holdInterval = setInterval(() => {
+            counter--;
+            console.log(counter)
+            translate += scrollAmount;
+            slideShow.style.transform = 'translateX(' + (translate) +'px)'
+            console.log(slideShow.style.transform);
+    
+        }, 15)
+    }
+    
+    prevBtn.addEventListener('mousedown',()=>{
+        mouseHoldDownLeft();
+    })
+
+    prevBtn.addEventListener('mouseup',()=>{
+        clearInterval(holdInterval)
     })
 
 
-    prevBtn.addEventListener('click',()=>{
-        // slideShow.style.transition = "transform 0.4s ease-in-out"
-        counter--;
-        console.log(counter)
-        translate += scrollAmount;
-        slideShow.style.transform = 'translateX(' + (translate) +'px)'
-        console.log(slideShow.style.transform)
-    })
 
 
-
-// })
