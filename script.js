@@ -36,7 +36,7 @@ function searchPhotos() {
             const div = document.createElement('div');
             //give it the right innerhtml and classname;
             const results = `
-            <img src="${photo.urls.regular}" class="image">
+            <img src="${photo.urls.regular}" class="image" id="${photo.id}">
             <icon class="likeIcon"><i class="far fa-heart"></i></icon>
             `;
 
@@ -45,11 +45,6 @@ function searchPhotos() {
         
             //append the image
             document.querySelector('.imageGallery').append(div);
-
-            //generate a random value for the rowSpan and columnSpan for CSS
-            function getRandomInt(max) {
-                return Math.ceil(Math.random() * max);
-            }
 
             let rValue = getRandomInt(3);
             let cValue = getRandomInt(3);
@@ -71,6 +66,10 @@ function searchPhotos() {
     }) 
 }
 
+//generate a random value for the rowSpan and columnSpan for CSS
+function getRandomInt(max) {
+    return Math.ceil(Math.random() * max);
+}
 
 //CLICK ON HEART
 imageGallery.addEventListener('click',(event) => {
@@ -83,6 +82,8 @@ imageGallery.addEventListener('click',(event) => {
             //ORIGINAL CODE
             let photoClone = photo.cloneNode(true);
             photoClone.classList.add("favouritePhoto")
+            // photoClone.dataList.add(imgID)
+            photoClone.id = photo.id;
             document.querySelector('#slideShow').append(photoClone); 
 
             favouriteClicked = true;
@@ -134,7 +135,22 @@ imageGallery.addEventListener('click',(event) => {
             //     }
             // }
         } else { //dislikes the image
+            
             event.target.classList.replace("fas", "far");  
+            // slideShow.querySelector(event.target.parentNode.parentNode)
+            //console.log(event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.)
+            let relevantPhoto= event.target.parentNode.parentNode.getElementsByClassName("image");
+            let finalID = relevantPhoto[0].id;
+            console.log(relevantPhoto)
+            console.log(finalID)
+
+            // let targetPhoto = document.getElementsByClassName("favouritesClass")
+            let targetPhoto = document.getElementById(`${finalID}`)
+            console.log(targetPhoto)
+            targetPhoto.remove();
+
+            // let targetPhoto = document.getElementById().getElementsByClassName('#slideShow')
+            // console.log(image.children)
         }
     } 
 })

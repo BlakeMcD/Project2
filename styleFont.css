@@ -1,0 +1,36 @@
+/* FONT FAMILY AND FONT WEIGHT */
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 600%;
+    color:#FFDF65;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 400%;
+    color:#664684;
+    margin-left: 10%;
+}
+
+#heroParagraph {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 200%;
+    color: #fff9e0;
+}
+
+#search {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 250%;
+    color: #664684;
+}
+
+#searchButton {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 250%;
+    color: #664684;
+}
