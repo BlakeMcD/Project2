@@ -72,7 +72,6 @@ body {
     top: 0;
 }
 
-
 #images {
     margin: 0;
     padding-top: 10px;
@@ -90,8 +89,6 @@ body {
 }
 
 /* CSS GRID STUFF*/
-
-
     .imageGallery {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -126,6 +123,7 @@ body {
         object-position: 50% 50%;
         transition:.25s ease-in-out;
     }
+
     /* zoom or scale feature */
     .photos img.image:hover{
         transform:scale(1.02);
@@ -152,7 +150,7 @@ body {
         grid-row: span 4;
     }
 
-        /* Albert, I love this feature! Cool thing I found to help with small screen compatibility :) */
+    /* Albert, I love this feature! Cool thing I found to help with small screen compatibility :) */
     @media screen and (max-width: 1000px){
         .imageGallery{
             grid-template-columns: repeat(1,1fr)
@@ -211,6 +209,18 @@ body {
     z-index: 4;
 }
 
+#slideShow2 {
+    display:flex;
+    height: 308px;
+    z-index: 4;
+}
+
+#slideShow3 {
+    display:flex;
+    height: 308px;
+    z-index: 4;
+}
+
 #prevBtn {
     position: absolute;
     margin-left: -5%;
@@ -234,10 +244,11 @@ body {
     transform:translate(-50%,-50%);
     z-index: 10px;
     font-size: 100px;
-    color: #664684;
+    color: #d4cadf;
     cursor: pointer;
     align-self: center;
     right: 0;
     background-color:transparent;
     border: 0;
 }
+
