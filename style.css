@@ -68,18 +68,10 @@ body {
     margin: 0;
     padding: 10px; 
     background-color: #fff9e0;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
-#square {
-    width: 11%;
-    margin: -20px;
-    height: 400px;
-    background: black;
-    z-index: 999;
-    float: left;
-}
 
 #images {
     margin: 0;
@@ -198,6 +190,7 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     position: relative;
+    z-index: 22;
 }
 
 .favouritePhoto {

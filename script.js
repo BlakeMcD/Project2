@@ -95,33 +95,6 @@
                     photoClone.classList.add("favouritePhoto")
                     document.querySelector('#slideShow').append(photoClone); 
 
-                    //REVISED CODE
-                    // let photoClone = photo.cloneNode(true);
-                    // photoClone.classList.add("favouritePhoto")
-                    // setTimeout(function(){return document.querySelector(`favImage${imgID}`).append(photoClone)},1000)
-
-                    // imgID += 1;
-
-
-
-                    // photoClone.parentElement.innerHTML = `<icon class="likeIcon"><i class="fas fa-minus-circle"></i></icon>`
-
-                    // ATTEMPT ADD LIKE BUTTONS TO FAVOURITE IMAGES
-
-                    // REFERENCE CODE
-
-                    // const results = `
-                    // <img src="${photo.urls.regular}" class="image">
-                    // <icon class="likeIcon"><i class="far fa-heart" class="heartOutline" ></i></icon>
-                    // `;
-    
-    
-                    // div.innerHTML = results;
-                    // div.className = "photos";
-    
-    
-                    // document.querySelector('.imageGallery').append(div);
-
                     favouriteClicked = true;
 
                 } else {
@@ -148,12 +121,14 @@
     //HOLD DOWN NEXT BUTTON
     const mouseHoldDownRight = function() {
         holdInterval = setInterval(() => {
-            counter++;
-            console.log(counter)
-            translate -= scrollAmount;
-            slideShow.style.transform = 'translateX(' + (translate) +'px)'
-            console.log(slideShow.style.transform);
-    
+            // if (translate > 0) {
+                counter++;
+                console.log(counter)
+
+                translate -= scrollAmount;
+                slideShow.style.transform = 'translateX(' + (translate) +'px)'
+                console.log(slideShow.style.transform);
+                // }     
         }, 15)
     }
     
@@ -168,12 +143,13 @@
     //HOLD DOWN PREV BUTTON
     const mouseHoldDownLeft = function() {
         holdInterval = setInterval(() => {
+            if (translate < 0) {
             counter--;
             console.log(counter)
             translate += scrollAmount;
             slideShow.style.transform = 'translateX(' + (translate) +'px)'
             console.log(slideShow.style.transform);
-    
+            }
         }, 15)
     }
     
