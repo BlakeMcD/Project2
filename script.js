@@ -88,52 +88,6 @@ imageGallery.addEventListener('click',(event) => {
 
             favouriteClicked = true;
 
-            // //EXPERIMENTAL CODE - add photo to array
-            // let newPhoto = {
-            //     name: 'img'+imgID,
-            //     imageUrl: photoClone.src,
-            //     unliked: false,
-            // }
-            // imgID += 1;
-            // const add = favouritePhotos.push(newPhoto)
-            // console.log(favouritePhotos)
-
-            // const newPhotoResults = `
-            // <img src="${newPhoto.imageUrl}" class="image">
-            // <icon class="likeIcon"><i class="far fa-heart"></i></icon>
-            // <div>
-            //     <button class="testButton">Test Button</button>
-            // </div>
-            // `;
-
-            // const newdiv = document.createElement('div')
-            // newdiv.innerHTML = newPhotoResults;
-            // newdiv.className = "favePhotos";
-
-            // document.querySelector('#slideShow2').append(newdiv); 
-
-            // //MORE EXPERIMENTAL CODE
-
-            // //delete everything in slideshow three
-            // const slideshow3 = document.querySelector('#slideshow3')
-            // slideshow3.innerHTML='';
-            
-            
-            // replenishPhotos = () => {
-            //     for (img of favouritePhotos)
-            //     {
-            //         const newPhotoResultsArray = `
-            //         <img src="${img.imageUrl}" class="image">
-            //         <icon class="likeIcon"><i class="far fa-heart"></i></icon>
-            //         `;
-
-            //         const newdiv2 = document.createElement('div')
-            //         newdiv2.innerHTML = newPhotoResultsArray;
-            //         newdiv2.className = "favePhotos";
-
-            //         document.querySelector('#slideShow3').append(newdiv2); 
-            //     }
-            // }
         } else { //dislikes the image
             
             event.target.classList.replace("fas", "far");  
